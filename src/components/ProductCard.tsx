@@ -12,7 +12,8 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 import { products } from '../utils/types';
-
+import { EditIcon } from '@chakra-ui/icons'
+import { Link } from 'react-router-dom';
 const data = {
   isNew: true,
   imageURL:
@@ -87,8 +88,9 @@ function ProductCard({id,title,category,image,price,rating,description}:products
           <Box display={"flex"}>
             {data.isNew && (
               <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                New
+                 <Link to={`/product/${id}/edit`}><Icon as={EditIcon} /></Link>  
               </Badge>
+         
             )}
           </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">

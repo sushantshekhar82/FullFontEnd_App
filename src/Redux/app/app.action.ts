@@ -34,10 +34,10 @@ const productError=():IProductError=>{
     }
 }
 
-export const getProduct=():any=>async(dispatch:AppDispatch)=>{
+export const getProduct=(getProductParam?:{params:{category:string[],sort:any,order:string[]}}):any=>async(dispatch:AppDispatch)=>{
    dispatch(productRequest());
    try{
-    let data=await ApiData()
+    let data=await ApiData(getProductParam)
     if(data){
         dispatch(productSuccess(data))
     }
